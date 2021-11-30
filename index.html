@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<h3> Faculty </h3>
+<div class="faculty-table">
+  {% for faculty in site.data.faculties %}
+  <div class="faculty">
+  <div class="imgbox">
+  <img src="{{ site.baseurl }}/images/faculty/{{ faculty.photo }}" class="cropped"/>
+  </div>
+  <h4>{{ faculty.first }} {{ faculty.last }}</h4>
+  <div class="researchbox">{{ faculty.research }}</div>
+  {% if faculty.personalweb %} 
+  <a href="{{ faculty.personalweb }}" target="_blank">[Personal webpage]</a>
+  {% endif %}
+  {% if faculty.groupweb %} 
+  <a href="{{ faculty.groupweb }}" target="_blank">[Lab webpage]</a>
+  {% endif %}
+  </div>
+  {% endfor %}
+</div>
+<h3> Students </h3>
+<div class="student-table">
+  {% for student in site.data.students %}
+  <div class="student">
+  <h5>{{ student.first }} {{ student.last }}</h5>
+  Advisor(s): {{student.advisor1}}
+  {%if student.advisor2 %}/ {{ student.advisor2 }} {% endif %}
+  {%if student.advisor3 %}/ {{ student.advisor3 }} {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+
+</div>

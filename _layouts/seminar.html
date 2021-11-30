@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="post">
+  <div class="titles">
+    <span class="category">Title: </span> {{ page.talk-title }}
+    <br/>
+    <span class="category">Speaker: </span> {{ page.speaker }} ({{ page.affiliation }})
+    {% if page.speaker-webpage %}
+    [webpage: <a href="{{ page.speaker-webpage }}">{{ page.speaker-webpage }}</a>]
+    {% endif %}
+    <br/>
+    <span class="category">Time: </span>{{ page.time }}, {{ page.date | date: "%B %d (%A), %Y"}}
+    <br/>
+    <span class="category">Location: </span>
+    {%if page.location %} {{ page.location }} 
+    {% else %} N/A {%endif %}
+    <br/>
+    {% if page.online %}
+    <span class="category">Online link: </span>
+    provided upon request or see the seminar email.
+    <br/>
+    {% endif %}
+  </div>
+  <div class="entry">
+    {{ page.content }}
+  </div>
+</article>
+
