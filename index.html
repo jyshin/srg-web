@@ -3,7 +3,8 @@ layout: default
 ---
 <h3> Faculty </h3>
 <div class="faculty-table">
-  {% for faculty in site.data.faculties %}
+  {% assign sorted_faculty = site.data.faculties | sort: 'last' %}
+  {% for faculty sorted_faculty %}
   <div class="faculty">
   <div class="imgbox">
   <img src="{{ site.baseurl }}/images/faculty/{{ faculty.photo }}" class="cropped"/>
@@ -21,7 +22,8 @@ layout: default
 </div>
 <h3> Students </h3>
 <div class="student-table">
-  {% for student in site.data.students %}
+  {% assign sorted_students = site.data.students | sort: 'last' %}
+  {% for student in sorted_students %}
   <div class="student">
   <h5>{{ student.first }} {{ student.last }}</h5>
   Advisor(s): {{student.advisor1}}
